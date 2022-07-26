@@ -1,4 +1,4 @@
-# Model title
+# BayeshERG
 ## Model identifiers
 - Slug: BayeshERG
 - Ersilia ID: eos4tcc
