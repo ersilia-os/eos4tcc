@@ -26,41 +26,42 @@ from rdkit.Chem import rdDepictor
 from rdkit.Chem.Draw import rdMolDraw2D
 from rdkit.Chem import rdmolfiles, rdmolops
 
-import argparse
+# import argparse
+TRAIN_LEN = 14322 # Number of training data
 
 
 # parse arguments
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 
-# current file directory
-root = os.path.dirname(os.path.abspath(__file__))
+# # current file directory
+# root = os.path.dirname(os.path.abspath(__file__))
 
-# checkpoints directory
-checkpoints_dir = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
+# # checkpoints directory
+# checkpoints_dir = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
 
-# read checkpoints (here, simply an integer number: 42)
-ckpt = joblib.load(os.path.join(checkpoints_dir, "checkpoints.joblib"))
+# # read checkpoints (here, simply an integer number: 42)
+# ckpt = joblib.load(os.path.join(checkpoints_dir, "checkpoints.joblib"))
 
-# model to be run (here, calculate the Molecular Weight and add ckpt (42) to it)
-def my_model(smiles_list, ckpt):
-    return [MolWt(Chem.MolFromSmiles(smi))+ckpt for smi in smiles_list]
+# # model to be run (here, calculate the Molecular Weight and add ckpt (42) to it)
+# def my_model(smiles_list, ckpt):
+#     return [MolWt(Chem.MolFromSmiles(smi))+ckpt for smi in smiles_list]
     
-# read SMILES from .csv file, assuming one column with header
-with open(input_file, "r") as f:
-    reader = csv.reader(f)
-    next(reader) # skip header
-    smiles_list = [r[0] for r in reader]
+# # read SMILES from .csv file, assuming one column with header
+# with open(input_file, "r") as f:
+#     reader = csv.reader(f)
+#     next(reader) # skip header
+#     smiles_list = [r[0] for r in reader]
     
-# run model
-outputs = my_model(smiles_list, ckpt)
+# # run model
+# outputs = my_model(smiles_list, ckpt)
 
-# write output in a .csv file
-with open(output_file, "w") as f:
-    writer = csv.writer(f)
-    writer.writerow(["value"]) # header
-    for o in outputs:
-        writer.writerow([o])
+# # write output in a .csv file
+# with open(output_file, "w") as f:
+#     writer = csv.writer(f)
+#     writer.writerow(["value"]) # header
+#     for o in outputs:
+#         writer.writerow([o])
         
         
 ### original code:
@@ -126,7 +127,7 @@ def prediction(model, df, test_data, device, samples = 100):
                 pred_sof = np.array(pred_sof).reshape(-1, 2)
                 pred_score.append(pred_sof)
 
-                num_atom_list += [x + 1 for x in lengths]
+                num_atom_list += [x + 1 for x in lengths()]
                 pred_att.append(w_tensor)
 
 
@@ -200,32 +201,16 @@ def attention_visulaizer(name, df, mean_att, num_atom_list):
 
 if __name__ == '__main__':
     warnings.warn = warn
-    parser = argparse.ArgumentParser()
 
-    parser.add_argument('-i', '--input', required=True, help='input data path', type=str)
-    parser.add_argument('-o', '--output', required=True, help='out file name', type=str)
-    parser.add_argument('-t', '--sample', required=False, default = 30, help='sampling time', type=int)
-    parser.add_argument('-c', '--compute', required=False, default='cpu', help='Computing using CPU or GPU', type=str)
-    args = parser.parse_args()
-    data_path = args.input
-    out_name = args.output
-    sampling = args.sample
-    computing = args.compute
-
-    if computing.lower() == 'cpu':
-        print('use CPU')
-        device = 'cpu'
-    elif computing.lower() == 'gpu':
-        print('use GPU')
-        device = 'cuda'
-    else: 
-        print("Argument error. Compute with CPU")
-        device ='cpu'
+    data_path = input_file
+    out_name = output_file
+    sampling = 30
+    device = 'cpu'
 
     atom_featurizer = CanonicalAtomFeaturizer()
     bond_featurizer = CanonicalBondFeaturizer()
-
-
+    
+    
     
     df = pd.read_csv(data_path)
     test_data = load_data(df, atom_featurizer, bond_featurizer)
@@ -233,4 +218,4 @@ if __name__ == '__main__':
 
     res_df, num_atom_list, mean_att = prediction(model, df, test_data, device, samples=sampling)
     res_df.to_csv("prediction_results/"+out_name+".csv", index=False)
-    attention_visulaizer(out_name, df, mean_att, num_atom_list)
+#     attention_visulaizer(out_name, df, mean_att, num_atom_list)
