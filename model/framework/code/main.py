@@ -17,8 +17,8 @@ from dgllife.utils import smiles_to_bigraph
 from dgllife.utils import CanonicalAtomFeaturizer
 from dgllife.utils import CanonicalBondFeaturizer
 
-from model.BayeshERG_model import BayeshERG
-from model.BayeshERG_model import RegularizationAccumulator
+from model.framework.code.BayeshERG_model import BayeshERG
+from model.framework.code.BayeshERG_model import RegularizationAccumulator
 
 from torch.utils.data import DataLoader
 
@@ -214,7 +214,7 @@ if __name__ == '__main__':
     
     df = pd.read_csv(data_path)
     test_data = load_data(df, atom_featurizer, bond_featurizer)
-    model = load_model("model/model_weights.pth", device)
+    model = load_model("model/checkpoints/model_weights.pth", device)
 
     res_df, num_atom_list, mean_att = prediction(model, df, test_data, device, samples=sampling)
     res_df.to_csv("prediction_results/"+out_name+".csv", index=False)
