@@ -9,7 +9,7 @@ Short description of the model in one or two sentences.
 - Input:
 - Output: {unit and description of output) 
 - Model type: (Regression or Classification)
-- Training set: (number of compounds and link to the training data)
+- Training set: 14322
 - Mode of training: Pretrained
 
 # Source code
