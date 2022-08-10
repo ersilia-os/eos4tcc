@@ -17,8 +17,10 @@ from dgllife.utils import smiles_to_bigraph
 from dgllife.utils import CanonicalAtomFeaturizer
 from dgllife.utils import CanonicalBondFeaturizer
 
-from model.framework.code.BayeshERG_model import BayeshERG
-from model.framework.code.BayeshERG_model import RegularizationAccumulator
+root = os.path.dirname(os.path.abspath(__file__))
+sys.path.append(root)
+from BayeshERG_model import BayeshERG
+from BayeshERG_model import RegularizationAccumulator
 
 from torch.utils.data import DataLoader
 
@@ -34,36 +36,6 @@ TRAIN_LEN = 14322 # Number of training data
 input_file = sys.argv[1]
 output_file = sys.argv[2]
 
-# # current file directory
-# root = os.path.dirname(os.path.abspath(__file__))
-
-# # checkpoints directory
-# checkpoints_dir = os.path.abspath(os.path.join(root, "..", "..", "checkpoints"))
-
-# # read checkpoints (here, simply an integer number: 42)
-# ckpt = joblib.load(os.path.join(checkpoints_dir, "checkpoints.joblib"))
-
-# # model to be run (here, calculate the Molecular Weight and add ckpt (42) to it)
-# def my_model(smiles_list, ckpt):
-#     return [MolWt(Chem.MolFromSmiles(smi))+ckpt for smi in smiles_list]
-    
-# # read SMILES from .csv file, assuming one column with header
-# with open(input_file, "r") as f:
-#     reader = csv.reader(f)
-#     next(reader) # skip header
-#     smiles_list = [r[0] for r in reader]
-    
-# # run model
-# outputs = my_model(smiles_list, ckpt)
-
-# # write output in a .csv file
-# with open(output_file, "w") as f:
-#     writer = csv.writer(f)
-#     writer.writerow(["value"]) # header
-#     for o in outputs:
-#         writer.writerow([o])
-        
-        
 ### original code:
 
 def warn(*args, **kwargs):
@@ -214,8 +186,8 @@ if __name__ == '__main__':
     
     df = pd.read_csv(data_path)
     test_data = load_data(df, atom_featurizer, bond_featurizer)
-    model = load_model("model/checkpoints/model_weights.pth", device)
+    model = load_model(os.path.join(root, "..", "..", "checkpoints", "model_weights.pth", device)
 
     res_df, num_atom_list, mean_att = prediction(model, df, test_data, device, samples=sampling)
-    res_df.to_csv("prediction_results/"+out_name+".csv", index=False)
+    res_df.to_csv(out_name, index=False)
 #     attention_visulaizer(out_name, df, mean_att, num_atom_list)
