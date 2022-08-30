@@ -18,7 +18,7 @@ Cite the source publication.
 - Checkpoints: include the link to the checkpoints used if model is a pretrained model
 
 # License
-GPL -v3
+GNU General Public License v3.0
 
 # History 
 - Model and scripts were downloaded from the [BayeshERG Github](https://github.com/GIST-CSBL/BayeshERG) on 7/20/2022. 
