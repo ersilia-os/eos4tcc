@@ -1,32 +1,40 @@
-# BayeshERG
-## Model identifiers
-- Slug: BayeshERG
-- Ersilia ID: eos4tcc
-- Tags: hERG, toxicity, ML
+# BayeshERG: hERG channel blockade
 
-# Model description
-Short description of the model in one or two sentences.
-- Input: SMILES
-- Output: {unit and description of output) 
-- Model type: Classification
-- Training set: 14322
-- Mode of training: Pretrained
+BayeshERG is a predictor of small molecule-induced blockade of the hERG ion channel. To increase its predictive power, the authors pretrained a bayesian graph neural network with 300,000 molecules as a transfer learning exercise. The pretraining set was obtained from Du et al, 2015, and the fine tuning dataset is a collection of 14,322 molecules from public databases (8488 positives and 5834 negatives). The model was validated on external datasets and experimentally, from 12 selected compounds (>0.95 probability) one candidate showed strong hERG inhibition (IC 50 < 1 μM) and three moderate (1 μM < IC 50 < 10 μM) in a patch-clamp in vitro assay.
 
-# Source code
-Cite the source publication.
-- Code: https://github.com/GIST-CSBL/BayeshERG
-- Checkpoints: include the link to the checkpoints used if model is a pretrained model
+## Identifiers
 
-# License
-GNU General Public License v3.0
+* EOS model ID: `eos4tcc`
+* Slug: `bayesherg`
 
-# History 
-- Model and scripts were downloaded from the [BayeshERG Github](https://github.com/GIST-CSBL/BayeshERG) on 7/20/2022. 
-- In order to get the script to run successfully, several variables (including lengths_x and b_lengths in BayeshERG_model.py, as well as lengths in main.py) were converted to methods. 
-- The original code solely relied on DGL. Since then, some methods have been moved from DGL to another library, DGLLife. Imports and method names have been changed appropriately. 
-- The original BayeshERG model provides both CPU and GPU-run models. Only the CPU version has been included.
+## Characteristics
 
-# About us
+* Input: `Compound`
+* Input Shape: `Single`
+* Task: `Classification`
+* Output: `Probability`
+* Output Type: `Float`
+* Output Shape: `Single`
+* Interpretation: Probability of hERG channel blockade. The cut-off used in the training set to define hERG blockade was IC50 <= 10 μM
+
+## References
+
+* [Publication](https://academic.oup.com/bib/article-abstract/23/4/bbac211/6609519)
+* [Source Code](https://github.com/GIST-CSBL/BayeshERG)
+* Ersilia contributor: [azycn](https://github.com/azycn)
+
+## Citation
+
+If you use this model, please cite the [original authors](https://academic.oup.com/bib/article-abstract/23/4/bbac211/6609519) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff).
+
+## License
+
+This package is licensed under a GPL-3.0 license. The model contained within this package is licensed under a GPL-3.0 license.
+
+Notice: Ersilia grants access to these models 'as is' provided by the original authors, please refer to the original code repository and/or publication if you use the model in your research.
+
+## About Us
+
 The [Ersilia Open Source Initiative](https://ersilia.io) is a Non Profit Organization ([1192266](https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/5170657/full-print)) with the mission is to equip labs, universities and clinics in LMIC with AI/ML tools for infectious disease research.
 
-[Help us](https://www.ersilia.io/donate) achieve our mission or [volunteer](https://www.ersilia.io/volunteer) with us!
+[Help us](https://www.ersilia.io/donate) achieve our mission!
