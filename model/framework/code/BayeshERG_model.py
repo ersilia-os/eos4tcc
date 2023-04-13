@@ -191,9 +191,9 @@ class DMPNN(nn.Module):
             edge_index = torch.LongTensor(list(edge_index))
             rev_efeat = efeat[edge_index]
             graph.edata['rev_w'] = rev_efeat.view(-1, self.edge_dim)
-            graph.update_all(fn.copy_edge('w', 'm'), self.reducer('m', 'neigh'))
-            graph.apply_edges(fn.copy_edge('rev_w', 'rm'))
-            graph.apply_edges(fn.copy_src('neigh', 't'))
+            graph.update_all(fn.copy_e('w', 'm'), self.reducer('m', 'neigh'))
+            graph.apply_edges(fn.copy_e('rev_w', 'rm'))
+            graph.apply_edges(fn.copy_u('neigh', 't'))
             graph.apply_edges(self.udf_sub)
             edg_n = graph.edata['e_res']
             return edg_n
@@ -244,7 +244,7 @@ class MPN_Featurizer(nn.Module):
             e_t0 = self.relu(e0 + self.e_update(m_e))
         g.edata['fe'] = e_t0
         g.ndata['fn'] = h0
-        g.update_all(fn.copy_edge('fe', 'fm'), fn.sum('fm', 'ff'))
+        g.update_all(fn.copy_e('fe', 'fm'), fn.sum('fm', 'ff'))
         out = self.relu(self.last_update(torch.cat((g.ndata['fn'], g.ndata['ff']), dim=1)))
         return out
 

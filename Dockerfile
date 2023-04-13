@@ -1,14 +1,14 @@
 FROM bentoml/model-server:0.11.0-py37
 MAINTAINER ersilia
 
-RUN conda install -c conda-forge rdkit=2021.03.4
+RUN pip install rdkit==2022.3.3
 RUN pip install joblib==1.1.0
-RUN pip install dgl -f https://data.dgl.ai/wheels/repo.html
+RUN pip install dgl==1.0.1
 RUN pip install dgllife==0.2.9
-RUN pip install tqdm==4.64.0
-RUN conda install pytorch==1.12.0 torchvision==0.13.0 torchaudio==0.12.0 -c pytorch
-RUN pip install requests==2.28.1
-RUN conda install -c conda-forge mdtraj -y
+RUN pip install torch==1.13.1
+RUN conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1
+RUN pip install mdtraj==1.9.7
+RUN pip install chardet==5.1.0
 
 WORKDIR /repo
 COPY . /repo
