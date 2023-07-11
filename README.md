@@ -23,6 +23,11 @@ BayeshERG is a predictor of small molecule-induced blockade of the hERG ion chan
 * [Source Code](https://github.com/GIST-CSBL/BayeshERG)
 * Ersilia contributor: [azycn](https://github.com/azycn)
 
+## Ersilia model URLs
+* [GitHub](https://github.com/ersilia-os/eos4tcc)
+* [AWS S3](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4tcc.zip)
+* [DockerHub](https://hub.docker.com/r/ersiliaos/eos4tcc) (AMD64, ARM64)
+
 ## Citation
 
 If you use this model, please cite the [original authors](https://academic.oup.com/bib/article-abstract/23/4/bbac211/6609519) of the model and the [Ersilia Model Hub](https://github.com/ersilia-os/ersilia/blob/master/CITATION.cff).

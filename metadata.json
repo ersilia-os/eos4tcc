@@ -28,5 +28,11 @@
     "Publication": "https://academic.oup.com/bib/article-abstract/23/4/bbac211/6609519",
     "Source Code": "https://github.com/GIST-CSBL/BayeshERG",
     "License": "GPL-3.0",
-    "Contributor": "azycn"
+    "Contributor": "azycn",
+    "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4tcc.zip",
+    "DockerHub": "https://hub.docker.com/r/ersiliaos/eos4tcc",
+    "Docker Architecture": [
+        "AMD64",
+        "ARM64"
+    ]
 }
