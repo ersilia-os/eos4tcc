@@ -49,8 +49,14 @@ def collate(graphs):
 
 def load_data(df, atom_featurizer, bond_featurizer):
     print("---------------- Target loading --------------------")
-    test_g = [smiles_to_bigraph(smi, node_featurizer=atom_featurizer, edge_featurizer=bond_featurizer) for smi in df['smiles']]
-    test_data = list(test_g)
+    test_g = []
+    for index, smi in df['smiles'].iteritems():
+        try:
+            graph = smiles_to_bigraph(smi, node_featurizer=atom_featurizer, edge_featurizer=bond_featurizer)
+            test_g.append(graph)
+        except Exception as e:
+            print(f"Error processing SMILES at index {index}: {smi}")
+            print(e)
     print("---------------- Target loading complete --------------------")
     return test_data
 
@@ -183,11 +189,9 @@ if __name__ == '__main__':
     bond_featurizer = CanonicalBondFeaturizer()
     
     
-    
     df = pd.read_csv(data_path)
     test_data = load_data(df, atom_featurizer, bond_featurizer)
     model = load_model(os.path.join(root, "..", "..", "checkpoints", "model_weights.pth"), device)
-
     res_df, num_atom_list, mean_att = prediction(model, df, test_data, device, samples=sampling)
     res_df.to_csv(out_name, index=False)
 #     attention_visulaizer(out_name, df, mean_att, num_atom_list)
