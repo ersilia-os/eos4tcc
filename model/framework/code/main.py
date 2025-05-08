@@ -189,5 +189,5 @@ if __name__ == '__main__':
     model = load_model(os.path.join(root, "..", "..", "checkpoints", "model_weights.pth"), device)
 
     res_df, num_atom_list, mean_att = prediction(model, df, test_data, device, samples=sampling)
+    res_df = res_df[['score', 'alea', 'epis']]
     res_df.to_csv(out_name, index=False)
-#     attention_visulaizer(out_name, df, mean_att, num_atom_list)
