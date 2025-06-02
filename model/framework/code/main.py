@@ -49,7 +49,8 @@ def collate(graphs):
 
 def load_data(df, atom_featurizer, bond_featurizer):
     print("---------------- Target loading --------------------")
-    test_g = [smiles_to_bigraph(smi, node_featurizer=atom_featurizer, edge_featurizer=bond_featurizer) for smi in df['smiles']]
+    smiles_lst = df["smiles"] if "smiles" in df.columns else df["input"]
+    test_g = [smiles_to_bigraph(smi, node_featurizer=atom_featurizer, edge_featurizer=bond_featurizer) for smi in smiles_lst]
     test_data = list(test_g)
     print("---------------- Target loading complete --------------------")
     return test_data
@@ -128,7 +129,8 @@ def attention_visulaizer(name, df, mean_att, num_atom_list):
     c = 0
     for j, n_atoms in enumerate(num_atom_list):
         attention_coeff = mean_att[:, c:c + n_atoms]
-        mol = Chem.MolFromSmiles(df['smiles'].iloc[j])
+        smiles_lst = df["smiles"] if "smiles" in df.columns else df["input"]
+        mol = Chem.MolFromSmiles(smiles_lst.iloc[j])
         new_order = rdmolfiles.CanonicalRankAtoms(mol)
         mol = rdmolops.RenumberAtoms(mol, new_order)
         for l in range(8):
