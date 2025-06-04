@@ -43,7 +43,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `2`
 - **Environment Size (Mb):** `4080`
+- **Image Size (Mb):** `3983.82`
 
+**Computational Performance (seconds):**
+- 10 inputs: `37.38`
+- 100 inputs: `43.49`
+- 10000 inputs: `1397.58`
 
 ### References
 - **Source Code**: [https://github.com/GIST-CSBL/BayeshERG](https://github.com/GIST-CSBL/BayeshERG)
