@@ -22,7 +22,7 @@ This model was incorporated on 2022-08-10.
 
 ### Output
 - **Output Dimension:** `1`
-- **Output Consistency:** `Fixed`
+- **Output Consistency:** `Variable`
 - **Interpretation:** Probability of hERG channel blockade. The cut-off used in the training set to define hERG blockade was IC50 <= 10 μM
 
 Below are the **Output Columns** of the model:
