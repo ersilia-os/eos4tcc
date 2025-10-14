@@ -4,6 +4,7 @@ BayeshERG is a predictor of small molecule-induced blockade of the hERG ion chan
 
 This model was incorporated on 2022-07-25.
 
+
 ## Information
 ### Identifiers
 - **Ersilia Identifier:** `eos4tcc`
@@ -22,7 +23,7 @@ This model was incorporated on 2022-07-25.
 
 ### Output
 - **Output Dimension:** `1`
-- **Output Consistency:** `Variable`
+- **Output Consistency:** `Fixed`
 - **Interpretation:** Probability of hERG channel blockade. The cut-off used in the training set to define hERG blockade was IC50 <= 10 μM
 
 Below are the **Output Columns** of the model:
