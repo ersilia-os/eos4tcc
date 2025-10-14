@@ -2,8 +2,7 @@
 
 BayeshERG is a predictor of small molecule-induced blockade of the hERG ion channel. To increase its predictive power, the authors pretrained a bayesian graph neural network with 300,000 molecules as a transfer learning exercise. The pretraining set was obtained from Du et al, 2015, and the fine tuning dataset is a collection of 14,322 molecules from public databases (8488 positives and 5834 negatives). The model was validated on external datasets and experimentally, from 12 selected compounds (>0.95 probability) one candidate showed strong hERG inhibition (IC 50 < 1 μM) and three moderate (1 μM < IC 50 < 10 μM) in a patch-clamp in vitro assay.
 
-This model was incorporated on 2022-07-25.
-
+This model was incorporated on 2022-07-25.Last packaged on 2025-10-14.
 
 ## Information
 ### Identifiers
@@ -38,18 +37,18 @@ Below are the **Output Columns** of the model:
 - **Source:** `Local`
 - **Source Type:** `External`
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos4tcc](https://hub.docker.com/r/ersiliaos/eos4tcc)
-- **Docker Architecture:** `AMD64`, `ARM64`
+- **Docker Architecture:** `AMD64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4tcc.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4tcc.zip)
 
 ### Resource Consumption
 - **Model Size (Mb):** `2`
 - **Environment Size (Mb):** `4082`
-- **Image Size (Mb):** `3983.82`
+- **Image Size (Mb):** `4001.01`
 
 **Computational Performance (seconds):**
-- 10 inputs: `37.38`
-- 100 inputs: `43.49`
-- 10000 inputs: `1397.58`
+- 10 inputs: `29.37`
+- 100 inputs: `25.56`
+- 10000 inputs: `441.01`
 
 ### References
 - **Source Code**: [https://github.com/GIST-CSBL/BayeshERG](https://github.com/GIST-CSBL/BayeshERG)
