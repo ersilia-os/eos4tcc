@@ -39,18 +39,17 @@
     "License": "GPL-3.0-only",
     "Contributor": "azycn",
     "Incorporation Date": "2022-07-25",
+    "Last Packaging Date": "2025-10-14",
+    "Release": "v1.0.0",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4tcc.zip",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos4tcc",
-    "Docker Architecture": [
-        "AMD64",
-        "ARM64"
-    ],
+    "Docker Architecture": "AMD64",
     "Model Size": 2.0,
     "Environment Size": 4082.0,
-    "Image Size": 3983.82,
-    "Computational Performance 1": 37.38,
-    "Computational Performance 2": 29.33,
-    "Computational Performance 3": 43.49,
-    "Computational Performance 4": 287.86,
-    "Computational Performance 5": 1397.58
+    "Image Size": 4001.01,
+    "Computational Performance 1": 29.37,
+    "Computational Performance 2": 19.68,
+    "Computational Performance 3": 25.56,
+    "Computational Performance 4": 100.79,
+    "Computational Performance 5": 441.01
 }
