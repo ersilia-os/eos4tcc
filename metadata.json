@@ -1,9 +1,9 @@
 {
     "Identifier": "eos4tcc",
     "Slug": "bayesherg",
-    "Status": "In maintenance",
+    "Status": "Ready",
     "Title": "BayeshERG: hERG channel blockade",
-    "Description": "BayeshERG predicts small molecule-induced blockade of the hERG ion channel. To enhance performance, the authors used transfer learning, pretraining a Bayesian graph neural network on 300,000 molecules (Du et al., 2015). It was fine-tuned on 14,322 molecules from public databases (8,488 positives/5,834 negatives). Experimental validation via patch-clamp assays confirmed its utility: of 12 high-probability candidates ($>0.95$), one showed strong inhibition ($IC_{50} < 1$ µM) and three showed moderate inhibition ($1$ µM $< IC_{50} < 10$ µM).",
+    "Description": "BayeshERG predicts small molecule-induced blockade of the hERG ion channel. To enhance performance, the authors used transfer learning, pretraining a Bayesian graph neural network on 300,000 molecules (Du et al., 2015). It was fine-tuned on 14,322 molecules from public databases (8,488 positives/5,834 negatives). Experimental validation via patch-clamp assays confirmed its utility: of 12 high-probability candidates ($>0.95$), one showed strong inhibition ($IC_{50} < 1$ \u00b5M) and three showed moderate inhibition ($1$ \u00b5M $< IC_{50} < 10$ \u00b5M).",
     "Deployment": [
         "Local"
     ],
