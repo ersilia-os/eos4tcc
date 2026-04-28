@@ -3,7 +3,7 @@
     "Slug": "bayesherg",
     "Status": "In maintenance",
     "Title": "BayeshERG: hERG channel blockade",
-    "Description": "BayeshERG is a predictor of small molecule-induced blockade of the hERG ion channel. To increase its predictive power, the authors pretrained a bayesian graph neural network with 300,000 molecules as a transfer learning exercise. The pretraining set was obtained from Du et al, 2015, and the fine tuning dataset is a collection of 14,322 molecules from public databases (8488 positives and 5834 negatives). The model was validated on external datasets and experimentally, from 12 selected compounds (>0.95 probability) one candidate showed strong hERG inhibition (IC 50 < 1 \u03bcM) and three moderate (1 \u03bcM < IC 50 < 10 \u03bcM) in a patch-clamp in vitro assay.",
+    "Description": "BayeshERG predicts small molecule-induced blockade of the hERG ion channel. To enhance performance, the authors used transfer learning, pretraining a Bayesian graph neural network on 300,000 molecules (Du et al., 2015). It was fine-tuned on 14,322 molecules from public databases (8,488 positives/5,834 negatives). Experimental validation via patch-clamp assays confirmed its utility: of 12 high-probability candidates ($>0.95$), one showed strong inhibition ($IC_{50} < 1$ µM) and three showed moderate inhibition ($1$ µM $< IC_{50} < 10$ µM).",
     "Deployment": [
         "Local"
     ],
@@ -18,7 +18,7 @@
     "Output": [
         "Score"
     ],
-    "Output Dimension": 1,
+    "Output Dimension": 3,
     "Output Consistency": "Fixed",
     "Interpretation": "Probability of hERG channel blockade. The cut-off used in the training set to define hERG blockade was IC50 <= 10 \u03bcM",
     "Tag": [
