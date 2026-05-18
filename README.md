@@ -1,6 +1,6 @@
 # BayeshERG: hERG channel blockade
 
-BayeshERG is a predictor of small molecule-induced blockade of the hERG ion channel. To increase its predictive power, the authors pretrained a bayesian graph neural network with 300,000 molecules as a transfer learning exercise. The pretraining set was obtained from Du et al, 2015, and the fine tuning dataset is a collection of 14,322 molecules from public databases (8488 positives and 5834 negatives). The model was validated on external datasets and experimentally, from 12 selected compounds (>0.95 probability) one candidate showed strong hERG inhibition (IC 50 < 1 μM) and three moderate (1 μM < IC 50 < 10 μM) in a patch-clamp in vitro assay.
+BayeshERG predicts small molecule-induced blockade of the hERG ion channel. To enhance performance, the authors used transfer learning, pretraining a Bayesian graph neural network on 300,000 molecules (Du et al., 2015). It was fine-tuned on 14,322 molecules from public databases (8,488 positives/5,834 negatives). Experimental validation via patch-clamp assays confirmed its utility: of 12 high-probability candidates ($>0.95$), one showed strong inhibition ($IC_{50} < 1$ µM) and three showed moderate inhibition ($1$ µM $< IC_{50} < 10$ µM).
 
 This model was incorporated on 2022-07-25.Last packaged on 2025-10-14.
 
@@ -21,7 +21,7 @@ This model was incorporated on 2022-07-25.Last packaged on 2025-10-14.
 - **Input Dimension:** `1`
 
 ### Output
-- **Output Dimension:** `1`
+- **Output Dimension:** `3`
 - **Output Consistency:** `Fixed`
 - **Interpretation:** Probability of hERG channel blockade. The cut-off used in the training set to define hERG blockade was IC50 <= 10 μM
 
@@ -52,7 +52,7 @@ Below are the **Output Columns** of the model:
 
 ### References
 - **Source Code**: [https://github.com/GIST-CSBL/BayeshERG](https://github.com/GIST-CSBL/BayeshERG)
-- **Publication**: [https://academic.oup.com/bib/article-abstract/23/4/bbac211/6609519](https://academic.oup.com/bib/article-abstract/23/4/bbac211/6609519)
+- **Publication**: [https://doi.org/10.1093/bib/bbac211](https://doi.org/10.1093/bib/bbac211)
 - **Publication Type:** `Peer reviewed`
 - **Publication Year:** `2022`
 - **Ersilia Contributor:** [azycn](https://github.com/azycn)
