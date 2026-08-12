@@ -1,4 +1,4 @@
 name,type,direction,description
 score,float,high,Probability of inhibiting the hERG channel
-alea,float,low,Aleatory uncertainty of the prediction
-epis,float,low,Epistemic uncertainty of the prediction
+alea,float,,Aleatory uncertainty of the prediction
+epis,float,,Epistemic uncertainty of the prediction
