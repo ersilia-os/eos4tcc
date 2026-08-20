@@ -1,6 +1,6 @@
 # BayeshERG: hERG channel blockade
 
-Predicts hERG channel blockade while reporting how confident the prediction is. BayeshERG is a Bayesian graph neural network that separates two kinds of doubt: aleatoric uncertainty arising from noise in the assay data, and epistemic uncertainty reflecting how far a query sits from anything seen in training. Actives were defined at IC50 at or below 10 uM. The uncertainty estimates are the point of the model, letting predictions on unfamiliar chemistry be discounted rather than taken at face value.
+BayeshERG predicts small molecule-induced blockade of the hERG ion channel. To enhance performance, the authors used transfer learning, pretraining a Bayesian graph neural network on 300,000 molecules (Du et al., 2015). It was fine-tuned on 14,322 molecules from public databases (8,488 positives/5,834 negatives). Experimental validation via patch-clamp assays confirmed its utility: of 12 high-probability candidates ($>0.95$), one showed strong inhibition ($IC_{50} < 1$ µM) and three showed moderate inhibition ($1$ µM $< IC_{50} < 10$ µM).
 
 This model was incorporated on 2022-07-25.Last packaged on 2025-10-14.
 
@@ -23,7 +23,7 @@ This model was incorporated on 2022-07-25.Last packaged on 2025-10-14.
 ### Output
 - **Output Dimension:** `3`
 - **Output Consistency:** `Fixed`
-- **Interpretation:** Probability of hERG blockade at an IC50 cut-off of 10 uM, with aleatoric and epistemic uncertainty estimates.
+- **Interpretation:** Probability of hERG channel blockade. The cut-off used in the training set to define hERG blockade was IC50 <= 10 μM
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
