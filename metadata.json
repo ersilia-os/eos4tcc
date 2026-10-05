@@ -1,7 +1,7 @@
 {
     "Identifier": "eos4tcc",
     "Slug": "bayesherg",
-    "Status": "Ready",
+    "Status": "In maintenance",
     "Title": "BayeshERG: hERG channel blockade",
     "Description": "Predicts hERG channel blockade while reporting how confident the prediction is. BayeshERG is a Bayesian graph neural network that separates two kinds of doubt: aleatoric uncertainty arising from noise in the assay data, and epistemic uncertainty reflecting how far a query sits from anything seen in training. Actives were defined at IC50 at or below 10 uM. The uncertainty estimates are the point of the model, letting predictions on unfamiliar chemistry be discounted rather than taken at face value.",
     "Deployment": [
