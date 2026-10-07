@@ -3,7 +3,7 @@
     "Slug": "bayesherg",
     "Status": "In maintenance",
     "Title": "BayeshERG: hERG channel blockade",
-    "Description": "Predicts hERG channel blockade while reporting how confident the prediction is. BayeshERG is a Bayesian graph neural network that separates two kinds of doubt: aleatoric uncertainty arising from noise in the assay data, and epistemic uncertainty reflecting how far a query sits from anything seen in training. Actives were defined at IC50 at or below 10 uM. The uncertainty estimates are the point of the model, letting predictions on unfamiliar chemistry be discounted rather than taken at face value.",
+    "Description": "Flags compounds likely to block the hERG potassium channel, the main cause of drug-induced QT prolongation and a routine preclinical hurdle. A Bayesian graph neural network with Monte Carlo dropout was pre-trained on 304,045 inhibition measurements and fine-tuned on 14,322 compounds labelled active at an IC50 of 10 uM or below, returning aleatoric and epistemic uncertainty alongside the score so that predictions on unfamiliar chemistry can be discounted. Of twelve high-scoring library compounds taken into automated patch-clamp, one blocked below 1 uM and three between 1 and 10 uM.",
     "Deployment": [
         "Local"
     ],
