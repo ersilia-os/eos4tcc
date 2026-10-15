@@ -1,7 +1,7 @@
 {
     "Identifier": "eos4tcc",
     "Slug": "bayesherg",
-    "Status": "In maintenance",
+    "Status": "Ready",
     "Title": "BayeshERG: hERG channel blockade",
     "Description": "Flags compounds likely to block the hERG potassium channel, the main cause of drug-induced QT prolongation and a routine preclinical hurdle. A Bayesian graph neural network with Monte Carlo dropout was pre-trained on 304,045 inhibition measurements and fine-tuned on 14,322 compounds labelled active at an IC50 of 10 uM or below, returning aleatoric and epistemic uncertainty alongside the score so that predictions on unfamiliar chemistry can be discounted. Of twelve high-scoring library compounds taken into automated patch-clamp, one blocked below 1 uM and three between 1 and 10 uM.",
     "Deployment": [
@@ -39,17 +39,17 @@
     "License": "MIT",
     "Contributor": "azycn",
     "Incorporation Date": "2022-07-25",
-    "Last Packaging Date": "2025-10-14",
+    "Last Packaging Date": "2026-10-15",
     "Release": "v1.0.0",
     "S3": "https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4tcc.zip",
     "DockerHub": "https://hub.docker.com/r/ersiliaos/eos4tcc",
     "Docker Architecture": "AMD64",
     "Model Size": 2.0,
     "Environment Size": 4065.0,
-    "Image Size": 4001.01,
-    "Computational Performance 1": 29.37,
-    "Computational Performance 2": 19.68,
-    "Computational Performance 3": 25.56,
-    "Computational Performance 4": 100.79,
-    "Computational Performance 5": 441.01
+    "Image Size": 4035.25,
+    "Computational Performance 1": 24.94,
+    "Computational Performance 2": 15.17,
+    "Computational Performance 3": 19.68,
+    "Computational Performance 4": 79.48,
+    "Computational Performance 5": 347.57
 }
