@@ -19,7 +19,7 @@
         "Score"
     ],
     "Output Dimension": 3,
-    "Output Consistency": "Fixed",
+    "Output Consistency": "Variable",
     "Interpretation": "Probability of hERG blockade at an IC50 cut-off of 10 uM, with aleatoric and epistemic uncertainty estimates.",
     "Tag": [
         "hERG",
