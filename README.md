@@ -2,7 +2,7 @@
 
 Flags compounds likely to block the hERG potassium channel, the main cause of drug-induced QT prolongation and a routine preclinical hurdle. A Bayesian graph neural network with Monte Carlo dropout was pre-trained on 304,045 inhibition measurements and fine-tuned on 14,322 compounds labelled active at an IC50 of 10 uM or below, returning aleatoric and epistemic uncertainty alongside the score so that predictions on unfamiliar chemistry can be discounted. Of twelve high-scoring library compounds taken into automated patch-clamp, one blocked below 1 uM and three between 1 and 10 uM.
 
-This model was incorporated on 2022-07-25.Last packaged on 2025-10-14.
+This model was incorporated on 2022-07-25.Last packaged on 2026-10-15.
 
 ## Information
 ### Identifiers
@@ -43,12 +43,12 @@ Below are the **Output Columns** of the model:
 ### Resource Consumption
 - **Model Size (Mb):** `2`
 - **Environment Size (Mb):** `4065`
-- **Image Size (Mb):** `4001.01`
+- **Image Size (Mb):** `4035.25`
 
 **Computational Performance (seconds):**
-- 10 inputs: `29.37`
-- 100 inputs: `25.56`
-- 10000 inputs: `441.01`
+- 10 inputs: `24.94`
+- 100 inputs: `19.68`
+- 10000 inputs: `347.57`
 
 ### References
 - **Source Code**: [https://github.com/GIST-CSBL/BayeshERG](https://github.com/GIST-CSBL/BayeshERG)
