@@ -22,15 +22,15 @@ This model was incorporated on 2022-07-25.Last packaged on 2025-10-14.
 
 ### Output
 - **Output Dimension:** `3`
-- **Output Consistency:** `Fixed`
+- **Output Consistency:** `Variable`
 - **Interpretation:** Probability of hERG blockade at an IC50 cut-off of 10 uM, with aleatoric and epistemic uncertainty estimates.
 
 Below are the **Output Columns** of the model:
 | Name | Type | Direction | Description |
 |------|------|-----------|-------------|
 | score | float | high | Probability of inhibiting the hERG channel |
-| alea | float | low | Aleatory uncertainty of the prediction |
-| epis | float | low | Epistemic uncertainty of the prediction |
+| alea | float |  | Aleatory uncertainty of the prediction |
+| epis | float |  | Epistemic uncertainty of the prediction |
 
 
 ### Source and Deployment
