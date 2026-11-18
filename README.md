@@ -2,7 +2,8 @@
 
 Flags compounds likely to block the hERG potassium channel, the main cause of drug-induced QT prolongation and a routine preclinical hurdle. A Bayesian graph neural network with Monte Carlo dropout was pre-trained on 304,045 inhibition measurements and fine-tuned on 14,322 compounds labelled active at an IC50 of 10 uM or below, returning aleatoric and epistemic uncertainty alongside the score so that predictions on unfamiliar chemistry can be discounted. Of twelve high-scoring library compounds taken into automated patch-clamp, one blocked below 1 uM and three between 1 and 10 uM.
 
-This model was incorporated on 2022-07-25.Last packaged on 2026-10-15.
+This model was incorporated on 2022-07-25.
+Last packaged on 2026-10-15.
 
 ## Information
 ### Identifiers
@@ -39,6 +40,7 @@ Below are the **Output Columns** of the model:
 - **DockerHub**: [https://hub.docker.com/r/ersiliaos/eos4tcc](https://hub.docker.com/r/ersiliaos/eos4tcc)
 - **Docker Architecture:** `AMD64`
 - **S3 Storage**: [https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4tcc.zip](https://ersilia-models-zipped.s3.eu-central-1.amazonaws.com/eos4tcc.zip)
+- **Apptainer**: [https://models-sif.s3.eu-north-1.amazonaws.com/eos4tcc_v1.sif](https://models-sif.s3.eu-north-1.amazonaws.com/eos4tcc_v1.sif)
 
 ### Resource Consumption
 - **Model Size (Mb):** `2`
