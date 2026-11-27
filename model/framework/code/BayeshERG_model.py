@@ -140,7 +140,7 @@ class MultiHeadAttention_readout(nn.Module):
     def forward(self, x, lengths_x):
         device = x.device
 
-        lengths_x = lengths_x()
+        lengths_x = lengths_x().tolist()  # Python ints: `bef += i` below must not grow one shared tensor in place
 
         batch_size = len(lengths_x)
         max_len_x = max(lengths_x)
@@ -156,7 +156,7 @@ class MultiHeadAttention_readout(nn.Module):
             bef += ((max_len_x + 1) - i)
         index = torch.tensor(index).to(device)
         x = x.view(batch_size * (max_len_x + 1), -1)
-        x = torch.index_select(x, 0, index.long()-1)
+        x = torch.index_select(x, 0, index.long())
 
         return x, alpha
 class DMPNN(nn.Module):
